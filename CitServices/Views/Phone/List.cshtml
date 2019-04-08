@@ -1,0 +1,37 @@
+﻿@model CitServices.Models.PhoneInfoViewModel
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Телефоны";
+    ViewBag.Header = Model.Header;
+}
+
+<div class="container-fluid">
+    <div class="row p-1">
+        <div class="col font-weight-bold" style="background-color:lightgrey;">ФИО</div>
+        <div class="col font-weight-bold" style="background-color:lightgrey;">Отдел</div>
+        <div class="col font-weight-bold" style="background-color:lightgrey;">Должность</div>
+        <div class="col font-weight-bold" style="background-color:lightgrey;">Телефон SIP</div>
+        <div class="col font-weight-bold" style="background-color:lightgrey;">Доп. информация</div>
+    </div>
+    @foreach (PhoneInfo pi in Model.Phones)
+    {
+        <div class="row p-1">
+            <div class="col" style="background-color:lavenderblush;"><a href="mailto:@pi.Email" target="_blank">@pi.Person</a></div>
+            <div class="col" style="background-color:lavenderblush;">@pi.Department</div>
+            <div class="col" style="background-color:lavenderblush;">@pi.Position</div>
+            <div class="col" style="background-color:lavenderblush;">@pi.Sip</div>
+            <div class="col" style="background-color: lavenderblush;">
+                <div class="row">
+                    <div class="col" style="background-color:lavenderblush;"><b>Сотовый:</b> @pi.Mobile</div>
+                </div>
+                <div class="row">
+                    <div class="col" style="background-color: lavenderblush;"><b>Адрес:</b> @pi.Address </div>
+                </div>
+                <div class="row">
+                    <div class="col" style="background-color: lavenderblush;"><b>Кабинет:</b> @pi.Cabinet </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

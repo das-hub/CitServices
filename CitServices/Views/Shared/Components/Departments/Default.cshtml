@@ -1,0 +1,9 @@
+﻿@model System.Collections.Generic.IEnumerable<string>
+
+<div class="list-group">
+    <small><a asp-controller="Phone" asp-action="List" asp-route-department="" class="list-group-item @(ViewBag.SelectedDepartment == "Отделы" ? "active": "")">Все отделы</a></small>
+    @foreach (string department in Model)
+    {
+        <small><a asp-controller="Phone" asp-action="List" asp-route-department="@department" class="list-group-item @(ViewBag.SelectedDepartment == department ? "active": "")">@department</a></small>
+    }
+</div>
